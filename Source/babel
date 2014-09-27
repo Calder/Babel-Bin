@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+from babel_args import args
+import re
+
+if re.match("https?://.*", args.TO):
+    import babel_http
+else:
+    print("Error: failed to parse recipient address.")
