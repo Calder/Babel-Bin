@@ -14,7 +14,7 @@ twilio_number = ""
 twilio_account_sid = ""
 twilio_auth_token = \"\""""
 
-from babel_base import *
+from babel.base import *
 
 # Check arguments
 if not args.MESSAGE: fail("MESSAGE required by SMS.")
