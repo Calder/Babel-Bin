@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from babel_args import args
+from babel_base import *
 import requests_futures.sessions
 
 # Make request
