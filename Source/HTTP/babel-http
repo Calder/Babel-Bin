@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+# Strings (may eventually be shared)
+TO_HELP      = "the recipient HTTP address"
+MESSAGE_HELP = "the request data"
+REPLY_HELP   = "wait for and print reply"
+
+import argparse
+
+# Parse command line arguments
+parser = argparse.ArgumentParser('babel-http')
+parser.add_argument('TO', help=TO_HELP)
+parser.add_argument('MESSAGE', nargs='?', help=MESSAGE_HELP)
+parser.add_argument('-r', '--reply', action='store_true', help=REPLY_HELP)
+args = parser.parse_args()
+
+# Delayed import (for faster exits on improper usage)
+import requests_futures.sessions
+
+# Make request
+session = requests_futures.sessions.FuturesSession()
+if args.MESSAGE: r = session.post(args.TO, args.MESSAGE)
+else: r = session.get(args.TO)
+
+# Print reply
+if args.reply: print(r.result().text)
