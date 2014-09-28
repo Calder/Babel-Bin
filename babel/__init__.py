@@ -1,9 +1,12 @@
-from __future__ import absolute_import
-
 def main():
+    # Check args and import other important functions
     from babel.base import args, fail
-    import re
 
+    # Expand args.TO if it matches an alias
+    import babel.aliases
+
+    # Delegate sending based on recipient type
+    import re
     if re.match(r"https?://.*", args.TO):
         import babel.http
     elif re.match(r"(\+\d{1,3})?\d{10}|\d{3}-\d{3}-\d{4}", args.TO):

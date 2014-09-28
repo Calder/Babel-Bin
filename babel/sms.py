@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 DEFAULT_CONFIG = """\
 # Babel uses Twilio (https://www.twilio.com) to send SMS messages.
 # If you don't have an account, you can register for one here:
@@ -26,11 +24,19 @@ import toml
 check_for_config_dir()
 
 # Create config file if it doesn't already exist
-if not os.path.isfile(BABEL_DIR+"/sms.toml"):
-    open(BABEL_DIR+"/sms.toml", "w").write(DEFAULT_CONFIG)
+if not os.path.isfile(BABEL_DIR+'/sms.toml'):
+    open(BABEL_DIR+'/sms.toml', 'w').write(DEFAULT_CONFIG)
 
 # Load config file
-s = toml.loads(open(BABEL_DIR+"/sms.toml").read())
+config = toml.loads(open(BABEL_DIR+'/sms.toml').read())
+def get_setting(setting):
+    if not setting in config:
+        fail("SMS config file is missing '%s'.",
+             "You may need to edit %s/sms.toml."%BABEL_DIR)
+    return config[setting]
+twilio_account_sid = get_setting('twilio_account_sid')
+twilio_auth_token  = get_setting('twilio_auth_token')
+twilio_number      = get_setting('twilio_number')
 
 from twilio.exceptions import TwilioException
 from twilio.rest import TwilioRestClient
@@ -38,7 +44,7 @@ from twilio.rest.exceptions import TwilioRestException
 
 # Authenticate with Twilio
 try:
-    client = TwilioRestClient(s['twilio_account_sid'], s['twilio_auth_token'])
+    client = TwilioRestClient(twilio_account_sid, twilio_auth_token)
 except TwilioException as e:
     fail("Twilio error "+e.msg,
          "You may need to edit %s/sms.toml."%BABEL_DIR)
@@ -46,7 +52,7 @@ except TwilioException as e:
 # Send a text
 try:
     sms = client.sms.messages.create(body=args.MESSAGE,
-                                     to=args.TO, from_=s['twilio_number'])
+                                     to=args.TO, from_=twilio_number)
 except TwilioRestException as e:
     fail("Twilio error "+e.msg,
          "You may need to edit %s/sms.toml."%BABEL_DIR)

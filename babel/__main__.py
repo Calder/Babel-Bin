@@ -3,8 +3,6 @@ Python packaging voodoo stolen from
 https://github.com/pypa/pip/blob/develop/pip/__main__.py
 """
 
-from __future__ import absolute_import
-
 import sys
 
 if __package__ == '':

@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from babel.base import *
 import requests_futures.sessions
 

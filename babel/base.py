@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 BABEL_DIR    = "~/.babel"
 
 TO_HELP      = "the recipient address"
