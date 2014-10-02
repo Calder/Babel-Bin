@@ -4,9 +4,8 @@ TO_HELP      = "the recipient address"
 MESSAGE_HELP = "the message data"
 REPLY_HELP   = "wait for and print reply"
 
-import argparse
-
 # Parse command line arguments
+import argparse
 parser = argparse.ArgumentParser('babel')
 parser.add_argument('TO', help=TO_HELP)
 parser.add_argument('MESSAGE', nargs='?', help=MESSAGE_HELP)

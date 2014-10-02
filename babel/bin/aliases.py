@@ -4,7 +4,7 @@ DEFAULT_CONFIG = """\
 
 bob 123-456-7890"""
 
-from babel.base import *
+from babel.bin.base import *
 
 import os.path
 

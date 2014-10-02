@@ -1,4 +1,4 @@
-from babel.base import *
+from babel.bin.base import *
 import requests_futures.sessions
 
 # Make request
