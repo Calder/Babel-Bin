@@ -1,12 +1,13 @@
 """
+This file allows the module to be executed with `python babel`.
+
 Python packaging voodoo stolen from
 https://github.com/pypa/pip/blob/develop/pip/__main__.py
 """
 
-import sys
-
 if __package__ == '':
     import os
+    import sys
     path = os.path.dirname(os.path.dirname(__file__))
     sys.path.insert(0, path)
 
