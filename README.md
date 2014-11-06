@@ -4,19 +4,18 @@ The `babel` command line interface provides a single command for sending *messag
 
 ## Usage
 
-Send a text message:
 ```
-babel 4041234567 "Ohai thar"
-```
+# Send an SMS
+babel 4041234567 'Ohai thar'
 
-Use an alias:
-```
-babel bob "Wazzaap!"
-```
+# Send a message to a contact
+babel bob 'Wazzaap!'
 
-Make an HTTP request:
-```
+# Make a GET request
 babel -r http://ipinfo.io/json
+
+# Make a POST request
+babel -r http://ipinfo.io/json somepostdata
 ```
 
 ## Installation
@@ -50,6 +49,11 @@ sudo brew link --overwrite python3
 # Install babel-cli
 sudo pip3 install babel-cli
 ```
+
+## Configuration
+
+* `~/.babel/aliases.txt` contains contact aliases.
+* `~/.babel/sms.toml` contains Twilio settings.
 
 ## Contributing
 
