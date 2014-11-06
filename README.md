@@ -4,9 +4,18 @@ The `babel` command line interface provides a single command for sending *messag
 
 ## Usage
 
+Send a text message:
 ```
 babel 4041234567 "Ohai thar"
+```
+
+Use an alias:
+```
 babel bob "Wazzaap!"
+```
+
+Make an HTTP request:
+```
 babel -r http://ipinfo.io/json
 ```
 
