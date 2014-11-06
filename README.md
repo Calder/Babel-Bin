@@ -4,7 +4,7 @@ The `babel` command line interface provides a single command for sending *messag
 
 ## Usage
 
-```
+```bash
 # Send an SMS
 babel 4041234567 'Ohai thar'
 
