@@ -46,13 +46,13 @@ from twilio.rest.exceptions import TwilioRestException
 try:
     client = TwilioRestClient(twilio_account_sid, twilio_auth_token)
 except TwilioException as e:
-    fail("Twilio error "+e.msg,
-         "You may need to edit %s/sms.toml."%BABEL_DIR)
+    print(e)
+    fail("Twilio Error", "You may need to edit %s/sms.toml"%BABEL_DIR)
 
 # Send a text
 try:
     sms = client.sms.messages.create(body=args.MESSAGE,
                                      to=args.TO, from_=twilio_number)
 except TwilioRestException as e:
-    fail("Twilio error "+e.msg,
-         "You may need to edit %s/sms.toml."%BABEL_DIR)
+    print(e)
+    fail("Twilio Error", "You may need to edit %s/sms.toml"%BABEL_DIR)
