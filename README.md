@@ -22,7 +22,7 @@ babel -r http://ipinfo.io/json somepostdata
 
 To send SMS messages, you'll first need to set up a [Twilio](https://www.twilio.com) account. Follow the instructions for your platform, then run
 ```shell
-babel YOUR_PHONE_NUMBER Hello World
+babel YOUR_PHONE_NUMBER 'Hello, me!'
 ```
 and edit `~/.babel/sms.toml` with your Twilio account settings. Save it and try again.
 
