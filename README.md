@@ -45,7 +45,7 @@ sudo ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/ma
 
 # Install Python 3 from Homebrew
 sudo brew install python3
-sudo brew link --overwrite
+sudo brew link --overwrite python3
 
 # Install babel-cli
 sudo pip3 install babel-cli
