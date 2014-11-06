@@ -53,4 +53,4 @@ sudo pip3 install babel-cli
 
 ## Contributing
 
-See the [design doc](https://docs.google.com/document/d/1B8_FC-u9iGq4RVdUB0VTxRnriBtdFCxIbqk3bhIdidU/edit#) for long term goals. Drop me a line f you're interested in contributing! :-)
+See the [design doc](https://docs.google.com/document/d/1B8_FC-u9iGq4RVdUB0VTxRnriBtdFCxIbqk3bhIdidU/edit#) for long term goals. Drop me a line if you're interested in contributing! :-)
